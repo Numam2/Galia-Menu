@@ -123,14 +123,20 @@ class _MobileProductDetailsState extends State<MobileProductDetails> {
                     )
                   : SizedBox(height: 20),
 
+              (widget.vegan) ? SizedBox(height: 10) : Container(),
+
               ///Product Name
-              Text(
-                widget.product,
-                style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500),
-                textAlign: TextAlign.center,
+              Container(
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  widget.product,
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500),
+                  textAlign: TextAlign.center,
+                ),
               ),
               SizedBox(height: 10),
 

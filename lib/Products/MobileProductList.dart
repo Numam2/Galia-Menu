@@ -18,7 +18,7 @@ class MobileProductList extends StatelessWidget {
       bool vegan,
       List<PriceOptions> priceOptions) {
     return Container(
-      height: 160,
+      height: 170,
       width: double.infinity,
       child: InkWell(
         onTap: () {
@@ -63,99 +63,97 @@ class MobileProductList extends StatelessWidget {
                   : Container(),
               SizedBox(width: 20),
               //Description
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  //Product
-                  Container(
-                      constraints: BoxConstraints(
-                          maxWidth: MediaQuery.of(context).size.width * 0.5),
-                      child: Text('$product',
-                          maxLines: 2,
-                          overflow: TextOverflow.fade,
-                          style: TextStyle(
-                              color: (!available) ? Colors.grey : Colors.black,
-                              fontSize: 18,
-                              fontWeight: FontWeight.normal))),
-                  SizedBox(height: 8),
-                  //Description
-                  (description.length > 0)
-                      ? Container(
-                          constraints: BoxConstraints(
-                              maxWidth:
-                                  MediaQuery.of(context).size.width * 0.5),
-                          child: Text('$description',
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  color: (!available)
-                                      ? Colors.grey
-                                      : Colors.black87,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.normal)))
-                      : Container(),
-                  SizedBox(height: description.length > 0 ? 8 : 0),
-                  //Time/Vegan
-                  (!vegan && time == 0)
-                      ? Container()
-                      : Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                              //Icon
-                              (time == 0)
-                                  ? Container()
-                                  : Icon(Icons.timer,
-                                      color: Colors.grey, size: 15),
-                              (time == 0) ? Container() : SizedBox(width: 5),
-                              //Time
-                              (time == 0)
-                                  ? Container()
-                                  : Text('$time min',
-                                      style: TextStyle(
-                                          fontSize: 11, color: Colors.grey)),
-                              (time == 0) ? Container() : SizedBox(width: 10),
-                              vegan
-                                  ? Container(
-                                      width: 25,
-                                      height: 25,
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(15.0),
-                                        image: DecorationImage(
-                                          image: AssetImage('Images/Vegan.png'),
-                                          fit: BoxFit.cover,
+              Container(
+                width: MediaQuery.of(context).size.width * 0.5,
+                height: double.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    //Product
+                    Text('$product',
+                        maxLines: 2,
+                        style: TextStyle(
+                            color: (!available) ? Colors.grey : Colors.black,
+                            fontSize: 16,
+                            height: 1.2,
+                            fontWeight: FontWeight.normal)),
+                    SizedBox(height: 8),
+                    //Description
+                    // (description.length > 0)
+                    //     ? Text('$description',
+                    //         maxLines: 2,
+                    //         overflow: TextOverflow.clip,
+                    //         style: TextStyle(
+                    //             color:
+                    //                 (!available) ? Colors.grey : Colors.black87,
+                    //             fontSize: 11,
+                    //             height: 1.2,
+                    //             fontWeight: FontWeight.normal))
+                    //     : Container(),
+                    // SizedBox(height: description.length > 0 ? 8 : 0),
+                    //Time/Vegan
+                    (!vegan && time == 0)
+                        ? Container()
+                        : Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                                //Icon
+                                (time == 0)
+                                    ? Container()
+                                    : Icon(Icons.timer,
+                                        color: Colors.grey, size: 15),
+                                (time == 0) ? Container() : SizedBox(width: 5),
+                                //Time
+                                (time == 0)
+                                    ? Container()
+                                    : Text('$time min',
+                                        style: TextStyle(
+                                            fontSize: 11, color: Colors.grey)),
+                                (time == 0) ? Container() : SizedBox(width: 10),
+                                vegan
+                                    ? Container(
+                                        width: 20,
+                                        height: 20,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(15.0),
+                                          image: DecorationImage(
+                                            image:
+                                                AssetImage('Images/Vegan.png'),
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
-                                      ),
-                                    )
-                                  : Container(),
-                            ]),
-                  SizedBox(height: 8),
-                  //Price
-                  (!available)
-                      ? Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                              Text('\$$price',
-                                  style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(width: 15),
-                              Text('No disponible',
-                                  style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold))
-                            ])
-                      : Text('\$$price',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold))
-                ],
+                                      )
+                                    : Container(),
+                              ]),
+                    SizedBox(height: (!vegan && time == 0) ? 0 : 8),
+                    //Price
+                    (!available)
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                                Text('\$$price',
+                                    style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold)),
+                                SizedBox(width: 15),
+                                Text('No disponible',
+                                    style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold))
+                              ])
+                        : Text('\$$price',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold))
+                  ],
+                ),
               )
             ],
           ),
