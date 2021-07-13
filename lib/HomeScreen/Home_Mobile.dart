@@ -54,7 +54,7 @@ class HomeMobile extends StatelessWidget {
       physics: BouncingScrollPhysics(),
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.all(25),
+        padding: EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,

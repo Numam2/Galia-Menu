@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         title: Container(
           height: 20,
-          child: Image(image: AssetImage('images/GaliaLogo.png')),
+          child: Image(image: AssetImage('Images/GaliaLogo.png')),
         ),
         // leading: Builder(
         //   builder:(context) => InkWell(
